@@ -5,7 +5,7 @@ NODE_CONFIG = {
     "NCEUtilsText": {
         "class": NCEUtilsText,
         "name": "🛠️ 文本输入"  
-    },
+    }
 }
 
 def generate_node_mappings(node_config):
