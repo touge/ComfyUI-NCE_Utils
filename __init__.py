@@ -1,5 +1,5 @@
 from .nodes.text_node import *
-
+from .nodes.separation import *
 
 NODE_CONFIG = {
     "ShowText|pysssss": {
@@ -10,7 +10,12 @@ NODE_CONFIG = {
         "class": NCEUtilsMultilineText,
         "name": "多行文本"  
     },
-    # "ModelSaveKJ": {"class": ModelSaveKJ, "name": "Model Save KJ"},
+
+    "NCEAudioSeparation":{
+        "class": NCEAudioSeparation,
+        "name": "分离声音"  
+    },
+
 }
 
 def generate_node_mappings(node_config):
