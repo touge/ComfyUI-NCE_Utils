@@ -1,11 +1,16 @@
+from .nodes.text_node import *
 
-from .nodes.text_nodes import *
 
 NODE_CONFIG = {
-    "NCEUtilsText": {
-        "class": NCEUtilsText,
-        "name": "🛠️ 文本输入"  
-    }
+    "ShowText|pysssss": {
+        "class": ShowText,
+        "ShowText|pysssss": "ShowText"
+    },
+    "NCEUtilsMultilineText":{
+        "class": NCEUtilsMultilineText,
+        "name": "多行文本"  
+    },
+    # "ModelSaveKJ": {"class": ModelSaveKJ, "name": "Model Save KJ"},
 }
 
 def generate_node_mappings(node_config):
@@ -26,3 +31,6 @@ WEB_DIRECTORY = "./web"
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS", "WEB_DIRECTORY"]
 
 print('🐍 NCE Utils Loaded')
+
+
+
