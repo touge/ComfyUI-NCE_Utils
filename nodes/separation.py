@@ -12,8 +12,6 @@ from ..libs.utils import ensure_stereo
 
 import config
 
-
-
 class NCEAudioSeparation:
     @classmethod
     def INPUT_TYPES(cls):
@@ -53,7 +51,7 @@ class NCEAudioSeparation:
 
     FUNCTION = "process"
     RETURN_TYPES = ("AUDIO", "AUDIO", "AUDIO", "AUDIO")
-    RETURN_NAMES = ("Bass", "Drums", "Other", "Vocals")
+    RETURN_NAMES = ("Bass(低音)", "Drums(节奏)", "Other(集合)", "Vocals(人声)")
     CATEGORY = config.CATEGORY_NAME #"audio"
     DESCRIPTION = "Separate audio into four sources: bass, drums, other, and vocals."
 

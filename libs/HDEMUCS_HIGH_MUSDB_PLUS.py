@@ -11,7 +11,6 @@ from functools import partial
 
 separation_model = "hdemucs_high_trained.pt"
 
-
 @dataclass
 class SourceSeparationBundle:
     _model_path: str
