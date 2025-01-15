@@ -1,0 +1,132 @@
+[
+    {
+        "name": "matrix-lobby",
+        "prompt": "{prompt} . dystopian martial arts atmosphere, leather-clad characters, green color tint, cyberpunk aesthetic, futuristic combat setting, metallic industrial environment, precise choreography, bullet trails in air",
+        "negative_prompt": "natural lighting, casual setting, traditional dojo, bright colors"
+    },
+    {
+        "name": "inception-hallway",
+        "prompt": "{prompt} . paradoxical architecture, impossible geometric spaces, dream-like environment, luxurious hotel aesthetic, infinite recursive structures, clean corporate design, reality-bending surroundings",
+        "negative_prompt": "normal architecture, logical spaces, simple design, realistic environment"
+    },
+    {
+        "name": "titanic-deck",
+        "prompt": "{prompt} . luxurious ocean liner setting, majestic ship deck atmosphere, romantic period piece environment, vintage 1910s aesthetic, ornate edwardian style, opulent maritime design",
+        "negative_prompt": "modern cruise ship, industrial vessel, contemporary setting"
+    },
+    {
+        "name": "star-wars-space",
+        "prompt": "{prompt} . epic sci-fi space environment, massive star destroyers, laser-filled cosmos, advanced spacecraft aesthetic, retro-futuristic space design, vast stellar vistas",
+        "negative_prompt": "realistic space, modern spacecraft, hard science fiction"
+    },
+    {
+        "name": "lord-rings-landscape",
+        "prompt": "{prompt} . epic fantasy wilderness, majestic mountain ranges, magical middle-earth environment, mythical landscape aesthetic, ancient ruins, vast untamed nature",
+        "negative_prompt": "modern landscape, urban setting, industrial environment"
+    },
+    {
+        "name": "harry-potter-magic",
+        "prompt": "{prompt} . magical wizarding world aesthetic, gothic magical architecture, enchanted environment, mystical particle effects, magical school atmosphere, floating enchanted objects",
+        "negative_prompt": "mundane setting, modern architecture, non-magical atmosphere"
+    },
+    {
+        "name": "fight-club-basement",
+        "prompt": "{prompt} . gritty underground environment, raw concrete aesthetic, sweaty underground atmosphere, harsh industrial setting, underground fight scene ambiance",
+        "negative_prompt": "clean environment, upscale setting, professional sports arena"
+    },
+    {
+        "name": "alien-spacecraft",
+        "prompt": "{prompt} . retro-futuristic space horror, biomechanical corridor design, claustrophobic industrial environment, dark mechanical aesthetic, steam-filled passages",
+        "negative_prompt": "clean spaceship, bright environment, modern sci-fi design"
+    },
+    {
+        "name": "indiana-jones-adventure",
+        "prompt": "{prompt} . ancient temple environment, archaeological adventure setting, booby-trapped ruins, exotic location aesthetic, mysterious artifact atmosphere",
+        "negative_prompt": "modern setting, urban environment, contemporary architecture"
+    },
+    {
+        "name": "terminator-future",
+        "prompt": "{prompt} . post-apocalyptic war zone, machine-dominated landscape, blue-steel aesthetic, robotic battlefield environment, destroyed civilization setting",
+        "negative_prompt": "peaceful setting, natural environment, pre-war world"
+    },
+    {
+        "name": "avatar-pandora",
+        "prompt": "{prompt} . bioluminescent alien forest, floating mountains environment, exotic alien ecosystem, vibrant alien wildlife, mystical natural world aesthetic",
+        "negative_prompt": "earth-like setting, normal forest, urban environment"
+    },
+    {
+        "name": "joker-stairs",
+        "prompt": "{prompt} . gritty urban decay aesthetic, grimy city atmosphere, desaturated color environment, lonely urban landscape, depressing city setting",
+        "negative_prompt": "clean city, cheerful environment, bright urban setting"
+    },
+    {
+        "name": "kill-bill-duel",
+        "prompt": "{prompt} . traditional japanese garden setting, samurai duel atmosphere, zen aesthetic, dramatic eastern environment, ceremonial combat setting",
+        "negative_prompt": "modern setting, western environment, urban landscape"
+    },
+    {
+        "name": "tron-legacy-grid",
+        "prompt": "{prompt} . digital neon world, minimalist cyber environment, geometric pattern aesthetic, dark virtual reality setting, glowing circuit design",
+        "negative_prompt": "natural environment, organic shapes, realistic world"
+    },
+    {
+        "name": "interstellar-space",
+        "prompt": "{prompt} . scientifically accurate space aesthetic, realistic cosmic environment, black hole visualization, vast stellar structures, hard sci-fi space setting",
+        "negative_prompt": "fantasy space, unrealistic stellar environment, cartoon space"
+    },
+    {
+        "name": "2001-space-odyssey",
+        "prompt": "{prompt} . retro-futuristic space aesthetic, sterile spacecraft interior, minimalist space station design, cosmic mystery atmosphere, geometric space architecture",
+        "negative_prompt": "cluttered space, modern spacecraft, busy environment"
+    },
+    {
+        "name": "mad-max-fury-road",
+        "prompt": "{prompt} . post-apocalyptic desert wasteland, rust and chrome aesthetic, diesel-punk environment, savage vehicle-filled landscape, extreme desert setting",
+        "negative_prompt": "lush environment, civilized setting, modern roads"
+    },
+    {
+        "name": "pulp-fiction-diner",
+        "prompt": "{prompt} . retro american diner aesthetic, 90s vintage restaurant setting, pop culture environment, quirky restaurant atmosphere, classic booth setting",
+        "negative_prompt": "modern restaurant, upscale dining, contemporary setting"
+    },
+    {
+        "name": "goodfellas-copacabana",
+        "prompt": "{prompt} . vintage nightclub atmosphere, glamorous mob environment, 1960s club aesthetic, bustling restaurant setting, classic italian-american atmosphere",
+        "negative_prompt": "modern club, contemporary restaurant, empty venue"
+    },
+    {
+        "name": "jurassic-park-jungle",
+        "prompt": "{prompt} . dinosaur-filled environment, prehistoric jungle setting, tropical danger atmosphere, ancient reptilian world, primordial forest aesthetic",
+        "negative_prompt": "modern zoo, urban setting, domestic animals"
+    },
+    {
+        "name": "sin-city-noir",
+        "prompt": "{prompt} . stark black and white aesthetic, neo-noir city atmosphere, high contrast environment, graphic novel style setting, dark urban mood",
+        "negative_prompt": "full color, realistic style, cheerful urban setting"
+    },
+    {
+        "name": "wes-anderson-symmetry",
+        "prompt": "{prompt} . pastel color palette, meticulously designed sets, quirky vintage aesthetic, symmetrical interior design, whimsical environment",
+        "negative_prompt": "messy setting, dark atmosphere, modern aesthetic"
+    },
+    {
+        "name": "kubrick-stare",
+        "prompt": "{prompt} . psychological horror atmosphere, unsettling interior setting, symmetrical haunting environment, institutional aesthetic, menacing mood",
+        "negative_prompt": "warm atmosphere, comfortable setting, welcoming environment"
+    },
+    {
+        "name": "ghost-shell-cityscape",
+        "prompt": "{prompt} . cyberpunk hong kong aesthetic, neon-soaked urban environment, cyber-noir cityscape, futuristic asian architecture, rainy tech noir setting",
+        "negative_prompt": "historical city, bright daytime, traditional architecture"
+    },
+    {
+        "name": "akira-neo-tokyo",
+        "prompt": "{prompt} . neo-tokyo cyberpunk aesthetic, dystopian anime cityscape, neon-industrial environment, futuristic japanese urban setting, cyber-punk motorcycle aesthetic",
+        "negative_prompt": "traditional tokyo, historical setting, natural environment"
+    },
+    {
+        "name": "leone-western",
+        "prompt": "{prompt} . spaghetti western aesthetic, dusty frontier environment, harsh desert setting, mexican border town atmosphere, civil war era environment",
+        "negative_prompt": "modern western, clean setting, urban environment"
+    }
+]

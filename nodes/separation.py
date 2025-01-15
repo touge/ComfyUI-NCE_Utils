@@ -51,7 +51,7 @@ class NCEAudioSeparation:
 
     FUNCTION = "process"
     RETURN_TYPES = ("AUDIO", "AUDIO", "AUDIO", "AUDIO")
-    RETURN_NAMES = ("Bass(低音)", "Drums(节奏)", "Other(集合)", "Vocals(人声)")
+    RETURN_NAMES = ("Bass", "Drums", "Other", "Vocals")
     CATEGORY = CATEGORY
     DESCRIPTION = "Separate audio into four sources: bass, drums, other, and vocals."
 

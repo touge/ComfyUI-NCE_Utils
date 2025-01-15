@@ -1,0 +1,62 @@
+{
+    "NCEUtilsMultilineText": {
+        "title": "多行文本",
+        "inputs": {
+            "string": "字符串"
+        },
+        "output": {
+            "string": "文本"
+        }
+    },
+    "ShowText": {
+        "title": "展示文本",
+        "inputs": {
+            "text": "文本"
+        },
+        "output": {
+            "text": "字符串"
+        }
+    },
+    "NCEAudioSeparation": {
+        "title": "分离声音",
+        "inputs": {
+            "audio": "声音"
+        },
+        "widgets": {
+            "chunk_fade_shape": "分段衰减过渡",
+                "linear" : "线性",
+                "half_sine" : "半正弦",
+                "logarithmic" :"对数",
+                "exponential" : "指数",
+            "chunk_length" : "分段长度",
+            "chunk_overlap" : "分段间重叠"
+        },
+        "outputs": {
+            "Bass": "Bass(低音)",
+            "Drums": "Drums(节奏)",
+            "Other": "Other(集合)",
+            "Vocals": "Vocals(人声)"
+        }
+    },
+    "NCEVideoStylerGenerator": {
+        "title": "视频风格生成器",
+        "inputs": {
+            "text_positive": "提示词"
+        },
+        "widgets": {
+            "movie_scenes" : "电影场景(Base movie scene reference)",
+            "timeofday" : "时间(Base environment - time)",
+            "weather" : "天气(Base environment - conditions)",
+            "lighting" : "光照(Light setup)",
+            "shooting" : "拍摄风格(Basic shooting approach)",
+            "camera" : "相机(Camera specifics)",
+            "composition" : "构成规则(Composition rules)",
+            "effects" : "特殊效果(Special effects)",
+            "video_styles" : "整体风格(Overall style)",
+            "cinematic_color" : "色彩风格(Color styles)"
+        },
+        "outputs": {
+            "text_positive": "提示词"
+        }
+    }
+}

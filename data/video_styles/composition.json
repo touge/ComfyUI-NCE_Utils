@@ -1,0 +1,77 @@
+[
+    {
+        "name": "rule-of-thirds",
+        "prompt": "{prompt} . subject placement on third intersections, power points alignment, thirds grid balance, key elements on third lines",
+        "negative_prompt": "centered composition, random placement, unbalanced layout"
+    },
+    {
+        "name": "golden-ratio",
+        "prompt": "{prompt} . fibonacci spiral composition, 1.618 ratio divisions, golden section alignment, logarithmic spiral organization",
+        "negative_prompt": "random ratios, unstructured spacing, arbitrary divisions"
+    },
+    {
+        "name": "symmetrical-balance",
+        "prompt": "{prompt} . mirror image composition, equal visual weight distribution, perfect balanced division, reflective arrangement",
+        "negative_prompt": "asymmetric layout, uneven balance, offset arrangement"
+    },
+    {
+        "name": "diagonal-dynamic",
+        "prompt": "{prompt} . strong diagonal line arrangement, oblique compositional flow, angular dynamic balance, diagonal visual thrust",
+        "negative_prompt": "horizontal lines, vertical composition, static arrangement"
+    },
+    {
+        "name": "triangular",
+        "prompt": "{prompt} . pyramid composition structure, triangular element arrangement, three-point balance, wedge-shaped organization",
+        "negative_prompt": "scattered elements, linear arrangement, rectangular structure"
+    },
+    {
+        "name": "frame-within-frame",
+        "prompt": "{prompt} . nested frame composition, internal framing elements, layered border structure, concentric arrangement",
+        "negative_prompt": "single frame, edge-to-edge composition, frameless structure"
+    },
+    {
+        "name": "leading-lines",
+        "prompt": "{prompt} . directional line convergence, visual path construction, linear eye guidance, perspective line flow",
+        "negative_prompt": "scattered focus, directionless composition, random lines"
+    },
+    {
+        "name": "centered-dominant",
+        "prompt": "{prompt} . bull's eye composition, radial balance focus, central subject emphasis, symmetrical weight distribution",
+        "negative_prompt": "off-center focus, edge composition, asymmetric balance"
+    },
+    {
+        "name": "dynamic-tension",
+        "prompt": "{prompt} . opposing directional forces, visual element contrast, balanced opposition, tension-creating arrangement",
+        "negative_prompt": "static composition, uniform direction, lack of tension"
+    },
+    {
+        "name": "quadrant-division",
+        "prompt": "{prompt} . four-section composition, quartered frame arrangement, cross-divided balance, quadrant element distribution",
+        "negative_prompt": "unstructured division, random sectioning, uneven quarters"
+    },
+    {
+        "name": "rhythm-repetition",
+        "prompt": "{prompt} . recurring element pattern, visual beat arrangement, sequential composition, pattern-based organization",
+        "negative_prompt": "random placement, irregular spacing, chaotic arrangement"
+    },
+    {
+        "name": "depth-layers",
+        "prompt": "{prompt} . foreground-midground-background separation, spatial plane division, depth staging, layered distance arrangement",
+        "negative_prompt": "flat composition, single plane, no depth separation"
+    },
+    {
+        "name": "angular-junction",
+        "prompt": "{prompt} . intersecting line composition, angular connection points, geometric line convergence, structured intersection arrangement",
+        "negative_prompt": "curved lines, flowing composition, organic arrangement"
+    },
+    {
+        "name": "radial-balance",
+        "prompt": "{prompt} . circular element arrangement, spoke-like composition, radial pattern distribution, center-outward organization",
+        "negative_prompt": "linear arrangement, grid pattern, rectangular structure"
+    },
+    {
+        "name": "figure-ground",
+        "prompt": "{prompt} . clear subject-background relationship, positive-negative space balance, distinct element separation, spatial relationship clarity",
+        "negative_prompt": "confused separation, unclear focus, merged elements"
+    }
+]

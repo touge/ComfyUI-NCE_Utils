@@ -12,18 +12,6 @@ def time_shift(
     hop_size: int = None,
     win_length: int = None,
 ) -> torch.Tensor:
-    """
-    Args:
-        waveform (torch.Tensor): Time-domain input of shape [channels, frames]
-        rate (float): rate to shift the waveform by
-        fft_size (int): Size of the FFT to be used (power of 2)
-        hop_size (int): Hop length for overlap (e.g., fft_size // 4)
-        win_length (int): Window size (often equal to fft_size)
-
-    Returns:
-        torch.Tensor: Time-domain output of same shape/type as input [channels, frames]
-
-    """
     if hop_size is None:
         hop_size = fft_size // 4
     if win_length is None:
@@ -100,16 +88,6 @@ def estimate_tempo(waveform: torch.Tensor, sample_rate: int) -> float:
 
 
 def ensure_stereo(audio: torch.Tensor) -> torch.Tensor:
-    """
-    Ensures the input audio is stereo. Supports [channels, frames] and [batch, channels, frames].
-    Handles mono by duplicating channels and multi-channel by downmixing to stereo.
-
-    Args:
-        audio (torch.Tensor): Audio data with shape [channels, frames] or [batch, channels, frames].
-
-    Returns:
-        torch.Tensor: Stereo audio with the same dimensional format as the input.
-    """
     if audio.ndim not in (2, 3):
         raise ValueError(
             "Audio input must have 2 or 3 dimensions: [channels, frames] or [batch, channels, frames]."

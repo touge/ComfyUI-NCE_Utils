@@ -1,5 +1,6 @@
 from .nodes.text_node import *
 from .nodes.separation import *
+from .nodes.video_style_generator import *
 
 NODE_CONFIG = {
     "ShowText|pysssss": {
@@ -8,13 +9,18 @@ NODE_CONFIG = {
     },
     "NCEUtilsMultilineText":{
         "class": NCEUtilsMultilineText,
-        "name": "多行文本"  
+        "name": "Multiline Text"  
     },
 
     "NCEAudioSeparation":{
         "class": NCEAudioSeparation,
-        "name": "分离声音"  
+        "name": "Separation of voices"  
     },
+
+    "NCEVideoStylerGenerator": {
+        "class": NCEVideoStylerGenerator,
+        "name": "Video Style Generator"  
+    }
 
 }
 

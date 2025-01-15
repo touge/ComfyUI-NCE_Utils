@@ -1,0 +1,82 @@
+[
+    {
+        "name": "motion-blur",
+        "prompt": "{prompt} . directional movement streak, velocity-based blur, speed motion trails, movement trace effect",
+        "negative_prompt": "sharp clarity, frozen motion, static image"
+    },
+    {
+        "name": "time-slice",
+        "prompt": "{prompt} . multiple time frame capture, sequential moment freeze, time segment division, chronological slice effect",
+        "negative_prompt": "single moment, continuous time, fluid motion"
+    },
+    {
+        "name": "double-exposure",
+        "prompt": "{prompt} . dual image overlay, transparency blend effect, image fusion technique, layered visual merger",
+        "negative_prompt": "single exposure, clear image, no overlay"
+    },
+    {
+        "name": "light-trails",
+        "prompt": "{prompt} . extended light exposure streak, illuminated motion path, light source tracing, brightness trail effect",
+        "negative_prompt": "static lights, point source lighting, no movement trails"
+    },
+    {
+        "name": "particle-system",
+        "prompt": "{prompt} . floating element dispersion, particle flow animation, suspended point system, dynamic particle movement",
+        "negative_prompt": "solid objects, static elements, no particle effects"
+    },
+    {
+        "name": "strobe-effect",
+        "prompt": "{prompt} . rhythmic light pulsing, sequential flash capture, staccato light timing, intermittent illumination",
+        "negative_prompt": "continuous lighting, smooth illumination, steady light"
+    },
+    {
+        "name": "prism-diffraction",
+        "prompt": "{prompt} . spectral light separation, rainbow color splitting, light spectrum dispersion, prismatic color effect",
+        "negative_prompt": "normal colors, no separation, standard lighting"
+    },
+    {
+        "name": "lens-distortion",
+        "prompt": "{prompt} . optical warping effect, lens curvature distortion, perspective manipulation, spatial lens deformation",
+        "negative_prompt": "undistorted view, normal perspective, straight lines"
+    },
+    {
+        "name": "digital-glitch",
+        "prompt": "{prompt} . data corruption artifact, digital signal interference, electronic distortion pattern, pixel displacement",
+        "negative_prompt": "clean image, no artifacts, clear signal"
+    },
+    {
+        "name": "time-echo",
+        "prompt": "{prompt} . motion afterimage trail, temporal ghost effect, movement echo overlay, action repeat pattern",
+        "negative_prompt": "single image, no trails, clean motion"
+    },
+    {
+        "name": "kaleidoscopic",
+        "prompt": "{prompt} . symmetrical pattern multiplication, mirrored segment repeat, geometric image splitting, radial pattern replication",
+        "negative_prompt": "single view, no repetition, asymmetric image"
+    },
+    {
+        "name": "chromatic-aberration",
+        "prompt": "{prompt} . color channel separation, rgb edge split, wavelength misalignment, color fringing effect",
+        "negative_prompt": "color accuracy, sharp edges, no color separation"
+    },
+    {
+        "name": "heat-distortion",
+        "prompt": "{prompt} . thermal wave warping, heat haze distortion, temperature ripple effect, thermal disturbance pattern",
+        "negative_prompt": "clear air, no distortion, stable image"
+    },
+    {
+        "name": "fractal-overlay",
+        "prompt": "{prompt} . recursive pattern generation, self-similar structure overlay, mathematical pattern effect, fractal geometry visual",
+        "negative_prompt": "simple patterns, non-recursive, plain overlay"
+    },
+    {
+        "name": "volumetric-rays",
+        "prompt": "{prompt} . visible light beam volume, atmospheric god rays, directional light scatter, beam volumetric effect",
+        "negative_prompt": "no light beams, flat lighting, no volumetrics"
+    },
+    {
+        "name": "phantom-motion",
+        "prompt": "{prompt} . transparent motion overlay, ghost movement trail, semi-visible action trace, ethereal movement pattern",
+        "negative_prompt": "solid movement, clear action, no transparency"
+    }
+]

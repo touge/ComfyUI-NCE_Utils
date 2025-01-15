@@ -1,0 +1,87 @@
+[
+    {
+        "name": "cinematic-epic",
+        "prompt": "{prompt} . fluid sequential storytelling, seamless scene transitions, progressive narrative flow, dynamic visual evolution, consistent pacing, measured temporal progression",
+        "negative_prompt": "choppy sequences, disconnected scenes, irregular timing, inconsistent flow"
+    },
+    {
+        "name": "hollywood-blockbuster",
+        "prompt": "{prompt} . dynamic scene progression, high-energy sequence flow, impactful visual momentum, rhythmic action progression, momentum-driven pacing",
+        "negative_prompt": "slow progression, static sequences, lacking momentum, irregular pacing"
+    },
+    {
+        "name": "documentary-real",
+        "prompt": "{prompt} . authentic moment capture, natural event progression, observational flow, unfolding real-time sequences, organic timing",
+        "negative_prompt": "staged sequences, artificial timing, forced progression"
+    },
+    {
+        "name": "music-video-dynamic",
+        "prompt": "{prompt} . rhythmic visual sequences, beat-synchronized flow, musical timing alignment, tempo-based transitions, dynamic rhythm matching",
+        "negative_prompt": "arrhythmic progression, off-beat timing, unsynchronized flow"
+    },
+    {
+        "name": "slow-motion-art",
+        "prompt": "{prompt} . temporal dilation flow, graceful time expansion, smooth slow progression, detailed motion evolution, stretched time sequences",
+        "negative_prompt": "regular speed flow, rushed timing, irregular slow motion"
+    },
+    {
+        "name": "timelapse-flow",
+        "prompt": "{prompt} . accelerated temporal progression, smooth time compression, consistent speed ramping, flowing time advancement, rhythmic acceleration",
+        "negative_prompt": "irregular speed, inconsistent progression, jumpy time flow"
+    },
+    {
+        "name": "commercial-premium",
+        "prompt": "{prompt} . polished sequence flow, premium pacing progression, refined timing, harmonious scene evolution, elegant visual rhythm",
+        "negative_prompt": "rough progression, uneven pacing, amateur sequencing"
+    },
+    {
+        "name": "nature-documentary",
+        "prompt": "{prompt} . natural event unfolding, organic progression timing, wildlife sequence flow, environmental rhythm, natural momentum",
+        "negative_prompt": "artificial progression, forced timing, unnatural sequence"
+    },
+    {
+        "name": "sports-action",
+        "prompt": "{prompt} . dynamic action progression, athletic sequence flow, momentum-based timing, energetic movement evolution, competitive rhythm",
+        "negative_prompt": "static action, broken momentum, sluggish progression"
+    },
+    {
+        "name": "horror-tension",
+        "prompt": "{prompt} . suspense building progression, tension escalation flow, creeping timing evolution, dread momentum, atmospheric rhythm",
+        "negative_prompt": "rushed tension, inconsistent suspense, broken atmosphere"
+    },
+    {
+        "name": "scifi-future",
+        "prompt": "{prompt} . futuristic sequence flow, advanced temporal progression, high-tech visual evolution, modern timing patterns, cutting-edge rhythm",
+        "negative_prompt": "dated progression, old-style timing, retro flow"
+    },
+    {
+        "name": "romantic-soft",
+        "prompt": "{prompt} . gentle emotional flow, tender moment progression, soft rhythmic evolution, delicate timing, graceful sequence development",
+        "negative_prompt": "harsh progression, abrupt timing, rough flow"
+    },
+    {
+        "name": "indie-film",
+        "prompt": "{prompt} . unconventional sequence progression, artistic timing flow, creative rhythmic patterns, unique temporal evolution, experimental pacing",
+        "negative_prompt": "standard progression, conventional timing, traditional flow"
+    },
+    {
+        "name": "experimental-art",
+        "prompt": "{prompt} . avant-garde temporal flow, abstract progression patterns, non-linear timing, artistic rhythm evolution, innovative sequence development",
+        "negative_prompt": "conventional sequence, traditional timing, standard progression"
+    },
+    {
+        "name": "dance-performance",
+        "prompt": "{prompt} . choreographed sequence flow, rhythmic movement progression, dance-timed evolution, graceful momentum, performance pacing",
+        "negative_prompt": "arrhythmic movement, uncoordinated flow, broken choreography"
+    },
+    {
+        "name": "food-cinematography",
+        "prompt": "{prompt} . culinary sequence progression, appetizing visual flow, food preparation rhythm, gastronomy timing, delicious moment evolution",
+        "negative_prompt": "rushed food sequences, unappealing progression, choppy preparation"
+    },
+    {
+        "name": "travel-adventure",
+        "prompt": "{prompt} . journey progression flow, exploration timing, adventure sequence evolution, discovery rhythm, wanderlust momentum",
+        "negative_prompt": "static travel, stagnant progression, lifeless sequences"
+    }
+]

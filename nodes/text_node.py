@@ -35,6 +35,7 @@ class ShowText:
         }
 
     INPUT_IS_LIST = True
+    RETURN_NAMES = ("string",)
     RETURN_TYPES = ("STRING",)
     FUNCTION = "process"
     OUTPUT_NODE = True
