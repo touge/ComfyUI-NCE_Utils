@@ -1,7 +1,7 @@
 自用脚本，不提供技术支持。
 
 
-更新：20250115
+20250115更新：
 
 1.新增本地化json语言文件。
 如果安装过AIGODLIKE-COMFYUI-TRANSLATION插件，将translation/zh-CN/Nodes/ComfyUI-NCE_Utils.json，
