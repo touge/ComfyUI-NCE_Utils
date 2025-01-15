@@ -1,9 +1,6 @@
-import os
-import re
-import folder_paths
 import config
 
-from pathlib import Path
+CATEGORY = "🐍 NCE/Utils"
 
 # 多行文本输入
 class NCEUtilsMultilineText:
@@ -18,7 +15,7 @@ class NCEUtilsMultilineText:
   RETURN_TYPES = ("STRING",)
   RETURN_NAMES = ("text",)  
   FUNCTION = "generate"
-  CATEGORY = config.CATEGORY_NAME
+  CATEGORY = CATEGORY
 
   def generate(self,text):
     return (text, )
@@ -43,7 +40,8 @@ class ShowText:
     OUTPUT_NODE = True
     OUTPUT_IS_LIST = (True,)
 
-    CATEGORY = config.CATEGORY_NAME
+    # CATEGORY = config.CATEGORY_NAME
+    CATEGORY = CATEGORY
 
     def process(self, text, unique_id=None, extra_pnginfo=None):
         if unique_id is not None and extra_pnginfo is not None:

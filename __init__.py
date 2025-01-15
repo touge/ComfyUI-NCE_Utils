@@ -23,7 +23,6 @@ def generate_node_mappings(node_config):
     node_display_name_mappings = {}
 
     for node_name, node_info in node_config.items():
-        # print(f"node_name: {node_name}, node_info: {node_info}")
         node_class_mappings[node_name] = node_info["class"]
         node_display_name_mappings[node_name] = node_info.get("name", node_info["class"].__name__)
 

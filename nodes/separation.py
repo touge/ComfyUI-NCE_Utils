@@ -10,7 +10,7 @@ from ..libs._types import AUDIO
 from ..libs.HDEMUCS_HIGH_MUSDB_PLUS import *
 from ..libs.utils import ensure_stereo
 
-import config
+CATEGORY = "🐍 NCE/Utils"
 
 class NCEAudioSeparation:
     @classmethod
@@ -52,7 +52,7 @@ class NCEAudioSeparation:
     FUNCTION = "process"
     RETURN_TYPES = ("AUDIO", "AUDIO", "AUDIO", "AUDIO")
     RETURN_NAMES = ("Bass(低音)", "Drums(节奏)", "Other(集合)", "Vocals(人声)")
-    CATEGORY = config.CATEGORY_NAME #"audio"
+    CATEGORY = CATEGORY
     DESCRIPTION = "Separate audio into four sources: bass, drums, other, and vocals."
 
     def process(
