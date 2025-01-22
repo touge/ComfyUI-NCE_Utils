@@ -1,5 +1,4 @@
 from .nodes.text_node import *
-from .nodes.separation import *
 from .nodes.video_style_generator import *
 
 NODE_CONFIG = {
@@ -10,11 +9,6 @@ NODE_CONFIG = {
     "NCEUtilsMultilineText":{
         "class": NCEUtilsMultilineText,
         "name": "Multiline Text"  
-    },
-
-    "NCEAudioSeparation":{
-        "class": NCEAudioSeparation,
-        "name": "Separation of voices"  
     },
 
     "NCEVideoStylerGenerator": {

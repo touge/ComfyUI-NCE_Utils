@@ -1,7 +1,6 @@
 import os
 import json
 import pathlib
-import folder_paths
 from collections import defaultdict
 
 
