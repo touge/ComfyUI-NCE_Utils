@@ -6,11 +6,95 @@ import numpy as np
 import json
 import datetime
 import folder_paths
+import torch
 
 from ..libs.utils import log, generate_random_name
 from ..libs.ImageProcessor import ImageProcessor
 
 CATEGORY = "🐍 NCE/Utils"
+class NCEEncodeBlindWaterMark:
+    #将不可见水印嵌入到图像中
+    @classmethod
+    def INPUT_TYPES(self):
+        return {
+            "required": {
+                "image": ("IMAGE", ),  #
+                "watermark_image": ("IMAGE",),  #
+            },
+            "optional": {
+            }
+        }
+    RETURN_TYPES = ("IMAGE",)
+    RETURN_NAMES = ("image",)
+    FUNCTION = 'watermark_encode'
+    CATEGORY = CATEGORY
+
+    def watermark_encode(self, image, watermark_image):
+        l_images = []
+        w_images = []
+        ret_images = []
+
+        for l in image:
+            l_images.append(torch.unsqueeze(l, 0))
+        for w in watermark_image:
+            w_images.append(torch.unsqueeze(w, 0))
+
+        for i in range(len(l_images)):
+            _image = ImageProcessor.tensor2pil(l_images[i])
+            wm_size = ImageProcessor.watermark_image_size(_image)
+            _wm_image = w_images[i] if i < len(w_images) else w_images[-1]
+            _wm_image = ImageProcessor.tensor2pil(_wm_image)
+            _wm_image = _wm_image.resize((wm_size, wm_size), Image.LANCZOS)
+            _wm_image = _wm_image.convert("L")
+
+            y, u, v, _ = ImageProcessor.image_channel_split(_image, mode='YCbCr')
+            _u = ImageProcessor.add_invisible_watermark(u, _wm_image)
+            ret_image = ImageProcessor.image_channel_merge((y, _u, v), mode='YCbCr')
+
+            if _image.mode == "RGBA":
+                ret_image = ImageProcessor.RGB2RGBA(ret_image, _image.split()[-1])
+            ret_images.append(ImageProcessor.pil2tensor(ret_image))
+
+        # log(f"{CATEGORY} Processed {len(ret_images)} image(s).", message_type='finish')
+        return (torch.cat(ret_images, dim=0),)
+    
+class NCEDecodeBlindWaterMark:
+    #从带有不可见水印的图像中提取水印信息
+    @classmethod
+    def INPUT_TYPES(self):
+
+        return {
+            "required": {
+                "image": ("IMAGE",),  #
+            },
+            "optional": {
+            }
+        }
+
+    RETURN_TYPES = ("IMAGE", )
+    RETURN_NAMES = ("watermark_image",)
+    FUNCTION = 'watermark_decode'
+    CATEGORY = CATEGORY
+
+    def watermark_decode(self, image):
+
+        NODE_NAME = 'Decode BlindWaterMark'
+
+        ret_images = []
+
+        for i in image:
+            _image = torch.unsqueeze(i,0)
+            _image = ImageProcessor.tensor2pil(_image)
+            wm_size = ImageProcessor.watermark_image_size(_image)
+            y, u, v, _ = ImageProcessor.image_channel_split(_image, mode='YCbCr')
+            ret_image = ImageProcessor.decode_watermark(u, wm_size)
+            ret_image = ret_image.resize((512, 512), Image.LANCZOS)
+            ret_image = ImageProcessor.normalize_gray(ret_image)
+            ret_images.append(ImageProcessor.pil2tensor(ret_image.convert('RGB')))
+
+        # log(f"{CATEGORY} Processed {len(ret_images)} image(s).", message_type='finish')
+        return (torch.cat(ret_images, dim=0), )
+    
 
 class NCEUtilsSaveImagePlus:
     def __init__(self):
@@ -77,7 +161,7 @@ class NCEUtilsSaveImagePlus:
                 qr_image = qr_image.resize((wm_size, wm_size), Image.BICUBIC).convert("L")
 
                 y, u, v, _ = ImageProcessor.image_channel_split(img, mode='YCbCr')
-                _u = ImageProcessor.add_invisibal_watermark(u, qr_image)
+                _u = ImageProcessor.add_invisible_watermark(u, qr_image)
                 wm_img = ImageProcessor.image_channel_merge((y, _u, v), mode='YCbCr')
 
                 if img.mode == "RGBA":

@@ -1,4 +1,7 @@
 from PIL import Image
+import torch
+import numpy as np
+
 import os
 import shutil
 import math
@@ -106,25 +109,63 @@ class ImageProcessor:
 
         return Image.open(output_image).convert(orig_image_mode)
 
-# # 示例使用
-# image = Image.open("your_image_path.png")
-# watermark_image = Image.open("your_watermark_image_path.png")
-# mask = Image.open("your_mask_path.png")
+    @staticmethod
+    def tensor2pil(t_image: torch.Tensor)  -> Image:
+        return Image.fromarray(np.clip(255.0 * t_image.cpu().numpy().squeeze(), 0, 255).astype(np.uint8))
+    
+    @staticmethod
+    def pil2tensor(image: Image) -> torch.Tensor:
+        # 将PIL图像转换为Tensor
+        return torch.from_numpy(np.array(image).astype(np.float32) / 255.0).unsqueeze(0)
+        
+    @staticmethod
+    def decode_watermark(image: Image, watermark_image_size: int = 94) -> Image:
+        temp_dir = os.path.join(folder_paths.get_temp_directory(), generate_random_name('_watermark_', '_temp', 16))
+        if os.path.isdir(temp_dir):
+            shutil.rmtree(temp_dir)
+        image_dir = os.path.join(temp_dir, 'decode_image')
+        result_dir = os.path.join(temp_dir, 'decode_result')
 
-# # 修改 CATEGORY 属性
-# ImageProcessor.CATEGORY = "Advanced Image Processing"
+        try:
+            os.makedirs(image_dir)
+            os.makedirs(result_dir)
+        except Exception as e:
+            log(f"Error: {ImageProcessor.CATEGORY} skipped, because unable to create temporary folder.", message_type='error')
+            return image
 
-# # 分离通道
-# channels = ImageProcessor.image_channel_split(image, mode='RGB')
+        image_file_name = os.path.join(generate_random_name('watermark_decode_', '_temp', 16) + '.png')
+        output_file_name = os.path.join(generate_random_name('watermark_decode_output_', '_temp', 16) + '.png')
 
-# # 合并通道
-# merged_image = ImageProcessor.image_channel_merge(channels, mode='RGB')
+        try:
+            image.save(os.path.join(image_dir, image_file_name))
+        except IOError as e:
+            log(f"Error: {ImageProcessor.CATEGORY} skipped, because unable to create temporary file.", message_type='error')
+            return image
 
-# # 转换为RGBA格式
-# rgba_image = ImageProcessor.RGB2RGBA(image, mask)
+        bwm1 = WaterMark(password_img=1, password_wm=1)
+        decode_image = os.path.join(image_dir, image_file_name)
+        output_image = os.path.join(result_dir, output_file_name)
 
-# # 计算水印大小
-# watermark_size = ImageProcessor.watermark_image_size(image)
-
-# # 添加不可见水印
-# watermarked_image = ImageProcessor.add_invisible_watermark(image, watermark_image)
+        try:
+            bwm1.extract(filename=decode_image, wm_shape=(watermark_image_size, watermark_image_size),
+                         out_wm_name=os.path.join(output_image))
+            ret_image = Image.open(output_image)
+        except Exception as e:
+            log(f"blind watermark extract fail, {e}")
+            ret_image = Image.new("RGB", (64, 64), color="black")
+        ret_image = ImageProcessor.normalize_gray(ret_image)
+        return ret_image
+    
+    @staticmethod
+    def normalize_gray(image: Image) -> Image:
+        # 对灰度图像进行直方图均衡化
+        if image.mode != 'L':
+            image = image.convert('L')
+        img = np.asarray(image)
+        balanced_img = img.copy()
+        hist, bins = np.histogram(img.reshape(-1), 256, (0, 256))
+        bmin = np.min(np.where(hist > (hist.sum() * 0.0005)))
+        bmax = np.max(np.where(hist > (hist.sum() * 0.0005)))
+        balanced_img = np.clip(img, bmin, bmax)
+        balanced_img = ((balanced_img - bmin) / (bmax - bmin) * 255)
+        return Image.fromarray(balanced_img).convert('L')

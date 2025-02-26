@@ -3,6 +3,12 @@ from .nodes.image_node import *
 from .nodes.video_style_generator import *
 
 NODE_CONFIG = {
+    "NCEVideoStylerGenerator": {
+        "class": NCEVideoStylerGenerator,
+        "name": "视频风格生成器"  
+    },
+
+    ###########################string/text tools#######################
     "NCEUtilsShowText": {
         "class": NCEUtilsShowText,
         "name": "展示文本"
@@ -11,14 +17,19 @@ NODE_CONFIG = {
         "class": NCEUtilsMultilineText,
         "name": "多行文本"  
     },
-    "NCEVideoStylerGenerator": {
-        "class": NCEVideoStylerGenerator,
-        "name": "视频风格生成器"  
-    },
 
+    ###########################image tools#######################
     "NCEUtilsSaveImagePlus": {
         "class": NCEUtilsSaveImagePlus,
         "name": "保存图像+",
+    },
+    "NCEEncodeBlindWaterMark": {
+        "class": NCEEncodeBlindWaterMark,
+        "name": "图像写入不可见水印",
+    },
+    "NCEDecodeBlindWaterMark": {
+        "class": NCEDecodeBlindWaterMark,
+        "name": "提取图像中不可见水印",
     }
 }
 
