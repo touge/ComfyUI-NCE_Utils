@@ -21,7 +21,7 @@ class NCEUtilsMultilineText:
     return (text, )
   
   
-class ShowText:
+class NCEUtilsShowText:
     @classmethod
     def INPUT_TYPES(s):
         return {
