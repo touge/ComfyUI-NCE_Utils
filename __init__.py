@@ -30,6 +30,10 @@ NODE_CONFIG = {
     "NCEDecodeBlindWaterMark": {
         "class": NCEDecodeBlindWaterMark,
         "name": "提取图像中不可见水印",
+    },
+    "NCECropFace":{
+        "class": NCECropFace,
+        "name": "人脸识别剪切"
     }
 }
 
