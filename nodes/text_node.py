@@ -2,6 +2,40 @@ import config
 
 CATEGORY = "🐍 NCE/Utils"
 
+#合并字符串
+class NCEMergeTexts:
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("OUTPUT",)
+    FUNCTION = "process"
+    CATEGORY = CATEGORY
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {},
+            "optional": {
+                "merge_string": ("STRING", {"default": ""}),
+                "input_1": (
+                    "STRING",
+                    {
+                        "multiline": False,
+                        "default": "",
+                        "forceInput": True
+                    },
+                ),
+            },
+        }
+
+    def process(self,**kwargs,):
+        merged_text = ""
+        sep = kwargs["merge_string"].replace("\\n", "\n")
+        del kwargs["merge_string"]
+
+        inputs = [value for value in kwargs.values()]
+
+        merged_text = sep.join(inputs)
+        return (merged_text.strip(),)
+    
 # 多行文本输入
 class NCEUtilsMultilineText:
   @classmethod
