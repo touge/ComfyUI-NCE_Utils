@@ -5,10 +5,12 @@ import torch
 from torchvision.utils import make_grid
 import cv2
 import numpy as np
-# import os
-# import folder_paths
+import os
+import folder_paths
 # import shutil
 
+def node_path():
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def log(message:str, message_type:str='info'):
     if message_type == 'error':
         message = '\033[1;41m' + message + '\033[m'

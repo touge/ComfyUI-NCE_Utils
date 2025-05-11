@@ -1,5 +1,6 @@
 from .nodes.text_node import *
 from .nodes.image_node import *
+# from .nodes.TextOnImage import *
 from .nodes.video_style_generator import *
 
 NODE_CONFIG = {
@@ -37,7 +38,15 @@ NODE_CONFIG = {
     "NCECropFace":{
         "class": NCECropFace,
         "name": "人脸识别剪切"
-    }
+    },
+    "NCETextOnImage":{
+        "class": NCETextOnImage,
+        "name": "图片上写文宇"
+    },
+    # "TextOnImage":{
+    #     "class": TextOnImage,
+    #     "name": "图片上写文宇2"
+    # },
 }
 
 def generate_node_mappings(node_config):
