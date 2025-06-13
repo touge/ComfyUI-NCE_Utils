@@ -3,10 +3,21 @@ from .nodes.image_node import *
 # from .nodes.TextOnImage import *
 from .nodes.video_style_generator import *
 
+from .nodes.prompt_enhancer_nodes import *
+
 NODE_CONFIG = {
     "NCEVideoStylerGenerator": {
         "class": NCEVideoStylerGenerator,
         "name": "视频风格生成器"  
+    },
+
+    "NCEVideoPromptEnhancer": {
+        "class": NCEVideoPromptEnhancer,
+        "name": "视频提示增强器"
+    },  
+    "NCEVideoPromptEnhancerLoader": {
+        "class": NCEVideoPromptEnhancerLoader,
+        "name": "视频提示器模型加载"
     },
 
     ###########################string/text tools#######################
@@ -18,10 +29,10 @@ NODE_CONFIG = {
         "class": NCEUtilsMultilineText,
         "name": "多行文本"  
     },
-    "NCEMergeTexts":{
-        "class": NCEMergeTexts,
-        "name": "合并字符串"  
-    },
+    # "NCEMergeTexts":{
+    #     "class": NCEMergeTexts,
+    #     "name": "合并字符串"  
+    # },
     ###########################image tools#######################
     "NCEUtilsSaveImagePlus": {
         "class": NCEUtilsSaveImagePlus,
