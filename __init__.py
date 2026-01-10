@@ -29,10 +29,10 @@ NODE_CONFIG = {
         "class": NCEUtilsMultilineText,
         "name": "多行文本"  
     },
-    # "NCEMergeTexts":{
-    #     "class": NCEMergeTexts,
-    #     "name": "合并字符串"  
-    # },
+    "NCEMergeTexts":{
+        "class": NCEMergeTexts,
+        "name": "合并字符串"  
+    },
     ###########################image tools#######################
     "NCEUtilsSaveImagePlus": {
         "class": NCEUtilsSaveImagePlus,
