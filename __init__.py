@@ -3,6 +3,9 @@ from .nodes.image_node import *
 # from .nodes.TextOnImage import *
 from .nodes.video_style_generator import *
 
+from .nodes.video_style_generator import *
+from .nodes.cache_node import *
+
 from .nodes.prompt_enhancer_nodes import *
 
 NODE_CONFIG = {
@@ -33,6 +36,14 @@ NODE_CONFIG = {
         "class": NCEMergeTexts,
         "name": "合并字符串"  
     },
+    "NCEListToString": {
+        "class": NCEListToString,
+        "name": "列表转字符串"
+    },
+    "NCEStringToList": {
+        "class": NCEStringToList,
+        "name": "字符串转列表"
+    },
     ###########################image tools#######################
     "NCEUtilsSaveImagePlus": {
         "class": NCEUtilsSaveImagePlus,
@@ -54,10 +65,19 @@ NODE_CONFIG = {
         "class": NCETextOnImage,
         "name": "图片上写文宇"
     },
-    # "TextOnImage":{
-    #     "class": TextOnImage,
-    #     "name": "图片上写文宇2"
-    # },
+    ###########################logic/cache tools#######################
+    "NCECleanGPUUsed": {
+        "class": NCECleanGPUUsed,
+        "name": "清除显存"
+    },
+    "NCECleanRAM": {
+        "class": NCECleanRAM,
+        "name": "清除内存"
+    },
+    "NCEClearCacheAll": {
+        "class": NCEClearCacheAll,
+        "name": "清除所有缓存"
+    }
 }
 
 def generate_node_mappings(node_config):

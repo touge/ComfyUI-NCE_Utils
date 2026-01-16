@@ -96,3 +96,67 @@ class NCEUtilsShowText:
                 if node:
                     node["widgets_values"] = [text]
         return {"ui": {"text": text}, "result": (text,)}
+
+
+# 列表转字符串
+class NCEListToString:
+    
+    def __init__(self):
+        pass
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "list": ("STRING", {"forceInput": True}),
+            },
+        }
+
+    INPUT_IS_LIST = True
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("string",)
+    OUTPUT_NODE = True
+    FUNCTION = "make_list"
+    CATEGORY = CATEGORY
+
+    def make_list(self, list):
+        if len(list) == 0:
+            print("Error in List Variable")
+            return ("",)
+
+        file_string_list = '\n'.join(list)
+
+        return (file_string_list,)
+
+
+# 字符串转列表
+class NCEStringToList:
+    
+    def __init__(self):
+        pass
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "string": ("STRING", {"forceInput": True}),
+            },
+        }
+
+    # INPUT_IS_LIST = True
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("list",)
+    OUTPUT_IS_LIST = (True,)
+    OUTPUT_NODE = True
+    FUNCTION = "make_list"
+    CATEGORY = CATEGORY
+
+    def make_list(self, string):
+        if len(string) == 0:
+            print("Error in string Variable")
+            return ("",)
+
+        file_paths = string.split('\n')
+
+        return (file_paths,)
+
