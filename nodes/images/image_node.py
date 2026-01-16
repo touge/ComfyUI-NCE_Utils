@@ -13,11 +13,11 @@ import cv2
 import logging
 import math
 
-from ..libs.utils import log, generate_random_name, node_path
-from ..libs.ImageProcessor import ImageProcessor
-from ..libs.face_restoration_helper import FaceRestoreHelper
+from ...libs.utils import log, generate_random_name, node_path
+from ...libs.ImageProcessor import ImageProcessor
+from ...libs.face_restoration_helper import FaceRestoreHelper
 
-from ..libs.utils import img2tensor, tensor2img
+from ...libs.utils import img2tensor, tensor2img
 
 CATEGORY = "🐍 NCE/Utils"
 

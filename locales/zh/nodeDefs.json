@@ -1,0 +1,105 @@
+{
+    "NCEImageScaleByAspectRatio": {
+        "display_name": "按宽高比缩放图像",
+        "inputs": {
+            "aspect_ratio": {
+                "name": "宽高比"
+            },
+            "proportional_width": {
+                "name": "自定义宽度比例"
+            },
+            "proportional_height": {
+                "name": "自定义高度比例"
+            },
+            "fit": {
+                "name": "适配模式"
+            },
+            "method": {
+                "name": "缩放方法"
+            },
+            "round_to_multiple": {
+                "name": "对齐到倍数"
+            },
+            "scale_to_side": {
+                "name": "缩放基准"
+            },
+            "scale_to_length": {
+                "name": "目标长度"
+            },
+            "background_color": {
+                "name": "背景颜色"
+            },
+            "image": {
+                "name": "图像"
+            },
+            "mask": {
+                "name": "蒙版"
+            }
+        },
+        "outputs": {
+            "image": {
+                "name": "图像"
+            },
+            "mask": {
+                "name": "蒙版"
+            },
+            "original_size": {
+                "name": "原始尺寸"
+            },
+            "width": {
+                "name": "宽度"
+            },
+            "height": {
+                "name": "高度"
+            }
+        }
+    },
+    "NCEIntConstant": {
+        "display_name": "整数常量",
+        "inputs": {
+            "value": {
+                "name": "值"
+            }
+        },
+        "outputs": {
+            "value": {
+                "name": "值"
+            }
+        }
+    },
+    "NCEFloatConstant": {
+        "display_name": "浮点数常量",
+        "inputs": {
+            "value": {
+                "name": "值"
+            }
+        },
+        "outputs": {
+            "value": {
+                "name": "值"
+            }
+        }
+    },
+    "NCEGetImageSize": {
+        "display_name": "获取图像尺寸",
+        "inputs": {
+            "image": {
+                "name": "图像"
+            }
+        },
+        "outputs": {
+            "image": {
+                "name": "图像"
+            },
+            "width": {
+                "name": "宽度"
+            },
+            "height": {
+                "name": "高度"
+            },
+            "count": {
+                "name": "数量"
+            }
+        }
+    }
+}
