@@ -101,5 +101,47 @@
                 "name": "数量"
             }
         }
+    },
+    "NCEMergeTexts": {
+        "display_name": "合并文本",
+        "inputs": {
+            "merge_string": {
+                "name": "分隔符"
+            }
+        },
+        "outputs": {
+            "OUTPUT": {
+                "name": "输出"
+            }
+        }
+    },
+    "NCEUtilsMultilineText": {
+        "display_name": "多行文本输入",
+        "inputs": {
+            "text": {
+                "name": "文本"
+            }
+        },
+        "outputs": {
+            "text": {
+                "name": "文本"
+            }
+        }
+    },
+    "NCEStringToList": {
+        "display_name": "字符串转列表",
+        "inputs": {
+            "string": {
+                "name": "字符串"
+            },
+            "remove_empty_lines": {
+                "name": "去除空行"
+            }
+        },
+        "outputs": {
+            "list": {
+                "name": "列表"
+            }
+        }
     }
 }

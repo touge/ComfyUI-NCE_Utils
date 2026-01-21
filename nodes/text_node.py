@@ -140,6 +140,7 @@ class NCEStringToList:
         return {
             "required": {
                 "string": ("STRING", {"forceInput": True}),
+                "remove_empty_lines": ("BOOLEAN", {"default": True, "forceInput": False}),
             },
         }
 
@@ -151,12 +152,16 @@ class NCEStringToList:
     FUNCTION = "make_list"
     CATEGORY = CATEGORY
 
-    def make_list(self, string):
+    def make_list(self, string, remove_empty_lines=True):
         if len(string) == 0:
             print("Error in string Variable")
             return ("",)
 
         file_paths = string.split('\n')
+        
+        # 如果选中去除空行选项，则过滤掉空字符串
+        if remove_empty_lines:
+            file_paths = [line for line in file_paths if line.strip()]
 
         return (file_paths,)
 
