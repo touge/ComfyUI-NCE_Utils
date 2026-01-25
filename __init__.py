@@ -4,8 +4,7 @@ from .nodes.images import *
 from .nodes.video_style_generator import *
 
 from .nodes.video_style_generator import *
-from .nodes.cache_node import *
-
+from .nodes.clear_vram import *
 from .nodes.prompt_enhancer_nodes import *
 from .nodes.logic import *
 from .nodes.primitive_node import *
@@ -93,18 +92,8 @@ NODE_CONFIG = {
     },
     ###########################系统节点#######################
     "NCECleanGPUUsed": {
-        "class": NCECleanGPUUsed,
-        "name": "清除显存",
-        "category": "🐍 NCE/系统"
-    },
-    "NCECleanRAM": {
-        "class": NCECleanRAM,
-        "name": "清除内存",
-        "category": "🐍 NCE/系统"
-    },
-    "NCEClearCacheAll": {
-        "class": NCEClearCacheAll,
-        "name": "清除所有缓存",
+        "class": ClearVRAM,
+        "name": "清除VRAM",
         "category": "🐍 NCE/系统"
     },
     ###########################逻辑节点#######################

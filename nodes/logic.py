@@ -1,14 +1,8 @@
 import json
+from ..libs.utils import AnyType
+any = AnyType("*")
 
 CATEGORY = "🐍 NCE/Logic"
-
-# 定义 any_type,用于接受任意类型的输入
-class AnyType(str):
-    def __ne__(self, __value: object) -> bool:
-        return False
-
-any_type = AnyType("*")
-
 
 # 显示任意类型
 class NCEShowAnything:
@@ -17,7 +11,7 @@ class NCEShowAnything:
         return {
             "required": {}, 
             "optional": {
-                "anything": (any_type, {}),
+                "anything": (any, {}),
             },
             "hidden": {
                 "unique_id": "UNIQUE_ID", 
@@ -25,7 +19,7 @@ class NCEShowAnything:
             }
         }
 
-    RETURN_TYPES = (any_type,)
+    RETURN_TYPES = (any,)
     RETURN_NAMES = ('output',)
     INPUT_IS_LIST = True
     OUTPUT_NODE = True

@@ -143,5 +143,24 @@
                 "name": "列表"
             }
         }
+    },
+    "NCECleanGPUUsed": {
+        "display_name": "清除VRAM",
+        "inputs": {
+            "anything": {
+                "name": "任意输入"
+            },
+            "clear_cache": {
+                "name": "清除缓存"
+            },
+            "clear_models": {
+                "name": "卸载模型"
+            }
+        },
+        "outputs": {
+            "any": {
+                "name": "任意输出"
+            }
+        }
     }
 }
