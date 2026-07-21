@@ -1,4 +1,6 @@
 import config
+import random
+import re
 
 CATEGORY = "🐍 NCE/Utils"
 
@@ -38,21 +40,48 @@ class NCEMergeTexts:
     
 # 多行文本输入
 class NCEUtilsMultilineText:
-  @classmethod
-  def INPUT_TYPES(s):
-    return {"required": {"text": ("STRING", {
-       "multiline": True, 
-       "dynamicPrompts": True
-      })}}
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "text": (
+                    "STRING",
+                    {
+                        "multiline": True,
+                        "dynamicPrompts": False,
+                    },
+                ),
+                "enable_dynamic": (
+                    "BOOLEAN",
+                    {
+                        "default": False,
+                        "label_on": "开启动态解析 {a|b}",
+                        "label_off": "关闭 (原样输出/支持JSON)",
+                    },
+                ),
+            }
+        }
 
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("text",)
+    FUNCTION = "generate"
+    CATEGORY = CATEGORY
 
-  RETURN_TYPES = ("STRING",)
-  RETURN_NAMES = ("text",)  
-  FUNCTION = "generate"
-  CATEGORY = CATEGORY
+    def generate(self, text, enable_dynamic=False):
+        if not enable_dynamic or not text:
+            return (text,)
 
-  def generate(self,text):
-    return (text, )
+        pattern = re.compile(r"\{([^{}]+)\}")
+        result = text
+        while True:
+            match = pattern.search(result)
+            if not match:
+                break
+            options = match.group(1).split("|")
+            choice = random.choice(options)
+            result = result[: match.start()] + choice + result[match.end() :]
+
+        return (result,)
   
   
 class NCEUtilsShowText:

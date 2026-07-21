@@ -113,16 +113,43 @@ function NCEMergeTextsNodeCreated(nodeType, nodeData, app) {
 		connected,
 		link_info
 	) {
-		if (!link_info) return;
 		if (type == 1) {
 			const input_name = getInputName(nodeData.name);
-			handleInputConnection(this, link_info, app, input_name);
+
+			// 只有在连接新线且连线信息有效时，才同步并更新端口类型
+			if (connected && link_info) {
+				handleInputConnection(this, link_info, app, input_name);
+			}
+
 			const specialInputCount = countSpecialInputs(this);
-			const select_slot = this.inputs.find((x) => x.name == "select");
+			const select_slot = this.inputs ? this.inputs.find((x) => x.name == "select") : null;
 
 			handleInputRemoval(this, index, connected, specialInputCount);
 			renameInputs(this, input_name);
 			updateWidgets(this, input_name, select_slot);
+
+			// 如果所有动态输入端口都已经断开连接，重置端口类型为默认的 "STRING"
+			let hasConnectedDynamic = false;
+			if (this.inputs) {
+				for (let input of this.inputs) {
+					if (input.name !== "select" && input.name !== "sel_mode" && input.name !== "merge_string") {
+						if (input.link !== null && input.link !== undefined) {
+							hasConnectedDynamic = true;
+							break;
+						}
+					}
+				}
+			}
+			if (!hasConnectedDynamic) {
+				this.origin_type = "STRING";
+				if (this.inputs) {
+					for (let input of this.inputs) {
+						if (input.name !== "select" && input.name !== "sel_mode" && input.name !== "merge_string") {
+							input.type = "STRING";
+						}
+					}
+				}
+			}
 		}
 
 		// 调用原始的 onConnectionsChange
@@ -135,13 +162,16 @@ function getInputName(nodeName) {
 }
 
 function countSpecialInputs(node) {
+	if (!node.inputs) return 0;
 	const specialInputs = ["select", "sel_mode", "merge_string"];
 	return node.inputs.filter((input) => specialInputs.includes(input.name))
 		.length;
 }
 
 function handleInputConnection(node, link_info, app, input_name) {
+	if (!node.inputs) return;
 	const origin_node = app.graph.getNodeById(link_info.origin_id);
+	if (!origin_node) return;
 	let origin_type = origin_node.outputs[link_info.origin_slot].type;
 
 	if (origin_type == "*") {
@@ -163,11 +193,13 @@ function handleInputConnection(node, link_info, app, input_name) {
 
 
 function handleInputRemoval(node, index, connected, converted_count) {
+	if (!node.inputs) return;
 	const CONNECT_TOUCH = "LGraphNode.prototype.connect";
 	const CONNECT_MOUSE = "LGraphNode.connect";
 	const LOAD_GRAPH = "loadGraphData";
 
 	function isValidRemovalContext(stackTrace) {
+		if (!stackTrace) return true;
 		return (
 			!stackTrace.includes(CONNECT_TOUCH) &&
 			!stackTrace.includes(CONNECT_MOUSE) &&
@@ -180,7 +212,8 @@ function handleInputRemoval(node, index, connected, converted_count) {
 		const inputToRemove = node.inputs[index];
 
 		// 只移除动态输入，不移除特殊输入
-		if (isValidRemovalContext(stackTrace) &&
+		if (inputToRemove &&
+			isValidRemovalContext(stackTrace) &&
 			inputToRemove.name !== "select" &&
 			inputToRemove.name !== "sel_mode" &&
 			inputToRemove.name !== "merge_string") {
@@ -190,6 +223,7 @@ function handleInputRemoval(node, index, connected, converted_count) {
 }
 
 function renameInputs(node, input_name) {
+	if (!node.inputs) return;
 	let slot_i = 1;
 	// 只重命名动态输入（input_1, input_2, ...），不重命名特殊输入
 	for (let i = 0; i < node.inputs.length; i++) {

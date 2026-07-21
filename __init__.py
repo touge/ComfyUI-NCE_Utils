@@ -1,32 +1,13 @@
 from .nodes.text_node import *
 from .nodes.images import *
 # from .nodes.TextOnImage import *
-from .nodes.video_style_generator import *
-
-from .nodes.video_style_generator import *
-from .nodes.clear_vram import *
-from .nodes.prompt_enhancer_nodes import *
+from .nodes.play_sound import *
 from .nodes.logic import *
 from .nodes.primitive_node import *
 from .nodes.image_info import *
+from .nodes.latent_node import *
 
 NODE_CONFIG = {
-    ###########################视频节点#######################
-    "NCEVideoStylerGenerator": {
-        "class": NCEVideoStylerGenerator,
-        "name": "视频风格生成器",
-        "category": "🐍 NCE/视频"
-    },
-    "NCEVideoPromptEnhancer": {
-        "class": NCEVideoPromptEnhancer,
-        "name": "视频提示增强器",
-        "category": "🐍 NCE/视频"
-    },  
-    "NCEVideoPromptEnhancerLoader": {
-        "class": NCEVideoPromptEnhancerLoader,
-        "name": "视频提示器模型加载",
-        "category": "🐍 NCE/视频"
-    },
 
     ###########################文本节点#######################
     "NCEUtilsShowText": {
@@ -90,10 +71,15 @@ NODE_CONFIG = {
         "name": "获取图像尺寸",
         "category": "🐍 NCE/图像"
     },
+    "NCELatentPresetResolution": {
+        "class": NCELatentPresetResolution,
+        "name": "预设分辨率 (Latent)",
+        "category": "🐍 NCE/图像"
+    },
     ###########################系统节点#######################
-    "NCECleanGPUUsed": {
-        "class": ClearVRAM,
-        "name": "清除VRAM",
+    "NCEUtilsPlaySound": {
+        "class": NCEUtilsPlaySound,
+        "name": "播放声音",
         "category": "🐍 NCE/系统"
     },
     ###########################逻辑节点#######################
