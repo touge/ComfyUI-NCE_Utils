@@ -127,7 +127,14 @@ WEB_DIRECTORY = "./js"
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS", "WEB_DIRECTORY"]
 
-print('[🐍 NCE Utils] Loaded')
+NCE_BANNER = r"""
+ _  _  ____ _____   _  _ _____ _____ _     ____ 
+| \| |/ ___| ____| | || |_   _|_   _| |   / ___|
+| .` | |   |  _|   | || | | |   | | | |   \___ \
+|_|\_|_|   |_____|  \__/  |_|   |_| |____|____/
+"""
+print(NCE_BANNER)
+print('🐍 NCE Utils Loaded')
 
 
 
