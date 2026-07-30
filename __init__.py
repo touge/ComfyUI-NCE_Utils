@@ -79,7 +79,7 @@ NODE_CONFIG = {
     "NCEImageComparer": {
         "class": NCEImageComparer,
         "name": "图像对比",
-        "category": "🐍 NCE/图像"
+       "category": "🐍 NCE/图像"
     },
     ###########################系统节点#######################
     "NCEUtilsPlaySound": {
@@ -134,7 +134,7 @@ NCE_BANNER = r"""
 |_|\_|_|   |_____|  \__/  |_|   |_| |____|____/
 """
 print(NCE_BANNER)
-print('🐍 NCE Utils Loaded')
+print('[NCE Utils] Loaded')
 
 
 

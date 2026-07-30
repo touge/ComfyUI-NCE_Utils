@@ -4,6 +4,7 @@
 from .image_node import *
 from .image_scale import *
 from .image_comparer import *
+from .text_on_image import *
 
 __all__ = [
     'NCEUtilsSaveImagePlus', 
