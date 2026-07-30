@@ -76,6 +76,11 @@ NODE_CONFIG = {
         "name": "预设分辨率 (Latent)",
         "category": "🐍 NCE/图像"
     },
+    "NCEImageComparer": {
+        "class": NCEImageComparer,
+        "name": "图像对比",
+        "category": "🐍 NCE/图像"
+    },
     ###########################系统节点#######################
     "NCEUtilsPlaySound": {
         "class": NCEUtilsPlaySound,
@@ -122,7 +127,7 @@ WEB_DIRECTORY = "./js"
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS", "WEB_DIRECTORY"]
 
-print('🐍 NCE Utils Loaded')
+print('[NCE Utils] Loaded')
 
 
 
