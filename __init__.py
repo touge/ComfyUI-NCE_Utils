@@ -1,7 +1,7 @@
 from .nodes.text_node import *
 from .nodes.images import *
 # from .nodes.TextOnImage import *
-from .nodes.play_sound import *
+from .nodes.audios import *
 from .nodes.logic import *
 from .nodes.primitive_node import *
 from .nodes.image_info import *
@@ -81,11 +81,16 @@ NODE_CONFIG = {
         "name": "图像对比",
        "category": "🐍 NCE/图像"
     },
-    ###########################系统节点#######################
+    ###########################音频节点#######################
+    "NCEGetAudioInfo": {
+        "class": NCEGetAudioInfo,
+        "name": "获取音频信息",
+        "category": "🐍 NCE/音频"
+    },
     "NCEUtilsPlaySound": {
         "class": NCEUtilsPlaySound,
         "name": "播放声音",
-        "category": "🐍 NCE/系统"
+        "category": "🐍 NCE/音频"
     },
     ###########################逻辑节点#######################
     "NCEShowAnything": {

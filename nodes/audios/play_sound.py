@@ -1,7 +1,7 @@
-from ..libs.utils import AnyType
+from ...libs.utils import AnyType
 any = AnyType("*")
 
-CATEGORY = "🐍 NCE/系统"
+CATEGORY = "🐍 NCE/音频"
 
 class NCEUtilsPlaySound:
     """
