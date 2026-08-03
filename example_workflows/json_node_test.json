@@ -1,0 +1,1607 @@
+{
+  "id": "3ab25b0a-1f17-4419-ba01-9d6edee65ae0",
+  "revision": 0,
+  "last_node_id": 81,
+  "last_link_id": 50,
+  "nodes": [
+    {
+      "id": 12,
+      "type": "JSONKeyCheckerNode",
+      "pos": [
+        -244.62130737304688,
+        1554.603271484375
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "exists",
+          "type": "BOOLEAN",
+          "slot_index": 0,
+          "links": [
+            43
+          ]
+        },
+        {
+          "name": "value",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": [
+            44
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONKeyCheckerNode"
+      },
+      "widgets_values": [
+        "\n    {\n      \"name\": \"Alice\",\n      \"scores\": [85, 90, 92]\n    }\n",
+        "name"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 10,
+      "type": "JSONGeneratorNode",
+      "pos": [
+        -2794.389404296875,
+        1539.045654296875
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "generated_json",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONGeneratorNode"
+      },
+      "widgets_values": [
+        "name:Alice\nscores:[1,2,3]",
+        false
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 39,
+      "type": "Note",
+      "pos": [
+        -2802.4306640625,
+        1333.67626953125
+      ],
+      "size": [
+        420.453125,
+        151.453125
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Node Description (JSONGeneratorNode)\nThis Node generates JSON data from key-value pair text input.\nInput:\n- key_value_pairs: String of key-value pairs (one per line)\n- is_array: Boolean to generate array instead of object\nOutput:\n- generated_json: The resulting JSON string\n## Exception\n- ValueError if invalid key-value format or JSON generation fails\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 40,
+      "type": "Note",
+      "pos": [
+        -1970.235107421875,
+        1333.774169921875
+      ],
+      "size": [
+        468.15625,
+        230.203125
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Node Description (JSONObjectIteratorNode)\nThis Node iterates through key-value pairs in a JSON object.\nInput:\n- json_input: JSON object string\n- index: Starting index\n- mode: fixed/incr/decr iteration mode\nOutput:\n- key: Current key\n- value: Current value\n- current_index: Current position\n- total_items: Total pairs\n## Exception\n- ValueError if input is not valid JSON object\n## Multi Workflow\nIf you use this node in severval workflows at the same time, they will use the same index. Like, workflow1 get index 1, then run workflow2, workflow2 will get index 2 not index 1(because index 1 is got by workflow1)"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 13,
+      "type": "JSONArrayIteratorNode",
+      "pos": [
+        -1089.4393340015986,
+        1618.080068465083
+      ],
+      "size": [
+        400,
+        222
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            40
+          ]
+        },
+        {
+          "name": "current_index",
+          "type": "INT",
+          "slot_index": 1,
+          "links": [
+            41
+          ]
+        },
+        {
+          "name": "total_items",
+          "type": "INT",
+          "slot_index": 2,
+          "links": [
+            42
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONArrayIteratorNode"
+      },
+      "widgets_values": [
+        "[\n    {\n      \"name\": \"Alice\",\n      \"scores\": [85, 90, 92]\n    },\n    {\n      \"name\": \"Bob\",\n      \"scores\": [78, 88, 94]\n    }\n  ]",
+        1,
+        "incr"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 41,
+      "type": "Note",
+      "pos": [
+        -1096.0665283203125,
+        1337.409423828125
+      ],
+      "size": [
+        424.984375,
+        242.359375
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Node Description (JSONArrayIteratorNode) \nThis Node iterates through elements in a JSON array.\nInput:\n- json_input: JSON array string\n- index: Starting index\n- mode: fixed/incr/decr iteration mode\nOutput:\n- item: Current array element\n- current_index: Current position\n- total_items: Array length\n## Exception\n- ValueError if input is not valid JSON array\n## Multi Workflow\nIf you use this node in severval workflows at the same time, they will use the same index. Like, workflow1 get index 1, then run workflow2, workflow2 will get index 2 not index 1(because index 1 is got by workflow1)\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 47,
+      "type": "JSONParserNode",
+      "pos": [
+        -3622.0205078125,
+        1905.4822998046875
+      ],
+      "size": [
+        403.5,
+        276.125
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "parsed_data",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            33
+          ]
+        },
+        {
+          "name": "array_size",
+          "type": "INT",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONParserNode"
+      },
+      "widgets_values": [
+        "[\n    {\n      \"name\": \"Alice\",\n      \"scores\": [85, 90, 92]\n    },\n    {\n      \"name\": \"Bob\",\n\"ext\": \"nothing here\",\n      \"scores\": [78, 88, 94]\n    }\n ]",
+        "1.name"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 1,
+      "type": "JSONParserNode",
+      "pos": [
+        -3620.50537109375,
+        1566.191162109375
+      ],
+      "size": [
+        403.5,
+        276.125
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "parsed_data",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            30
+          ]
+        },
+        {
+          "name": "array_size",
+          "type": "INT",
+          "slot_index": 1,
+          "links": [
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONParserNode"
+      },
+      "widgets_values": [
+        "[\n    {\n      \"name\": \"Alice\",\n      \"scores\": [85, 90, 92]\n    },\n    {\n      \"name\": \"Bob\",\n\"ext\": \"nothing here\",\n      \"scores\": [78, 88, 94]\n    }\n  ]",
+        "1"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 52,
+      "type": "Note",
+      "pos": [
+        -3203.802001953125,
+        1338.7130126953125
+      ],
+      "size": [
+        340.171875,
+        169.671875
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Path Usage",
+      "properties": {},
+      "widgets_values": [
+        "1. Array Index: You can use index to find element in array. Like the first example, using index 1 to get the second json object(Bob), while index 0 get the first json object(Alice).\n2. Object Key: You can use key to find value of the json object. Like, we use `1.name` to get the `name` field of the second json object.\n3. Empty: Just return the original json string."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 44,
+      "type": "Note",
+      "pos": [
+        -3614.788818359375,
+        1336.400390625
+      ],
+      "size": [
+        390.984375,
+        176.921875
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Node Description (SimpleJSONParserNode)\nThis Node parses JSON and can extract nested values via path.\nInput:\n- json_string: JSON input to parse\n- path: Dot notation path to extract (optional)\nOutput:\n- parsed_data: Extracted/full JSON data\n- array_size: Length if array, -1 otherwise\n## Exception\n- ValueError for invalid JSON or path"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 8,
+      "type": "JSONMergeNode",
+      "pos": [
+        -2808.18701171875,
+        2139.40087890625
+      ],
+      "size": [
+        423.984375,
+        356.421875
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "merged_json",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONMergeNode"
+      },
+      "widgets_values": [
+        "\n    {\n      \"name\": \"Alice\",\n      \"scores\": [85, 90, 92]\n    }\n",
+        "                         {\n      \"name2\": \"Bob\",\n      \"scores2\": [78, 88, 94]\n}",
+        "concat"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 53,
+      "type": "Note",
+      "pos": [
+        -2791.831298828125,
+        1897.48291015625
+      ],
+      "size": [
+        385.171875,
+        187.546875
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Node Description (JSONMergeNode)\nThis Node merges two JSON inputs with configurable strategy.\nInput:\n- json_input_1: First JSON input\n- json_input_2: Second JSON input\n- merge_strategy: override/preserve/concat\nOutput:\n- merged_json: Combined JSON result\n## Exception\n- ValueError if inputs are invalid or incompatible types\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 14,
+      "type": "JSONObjectIteratorNode",
+      "pos": [
+        -1969.0955810546875,
+        1617.1732177734375
+      ],
+      "size": [
+        402.375,
+        266.015625
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "key",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            38
+          ]
+        },
+        {
+          "name": "value",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": [
+            39
+          ]
+        },
+        {
+          "name": "current_index",
+          "type": "INT",
+          "slot_index": 2,
+          "links": [
+            37
+          ]
+        },
+        {
+          "name": "total_items",
+          "type": "INT",
+          "slot_index": 3,
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONObjectIteratorNode"
+      },
+      "widgets_values": [
+        "{\n    \"Ali\": {\n      \"name\": \"Alice\",\n      \"scores\": [85, 90, 92]\n    },\n    \"Bob\": {\n      \"name\": \"Bob\",\n      \"scores\": [78, 88, 94]\n    }\n}",
+        0,
+        "incr"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 56,
+      "type": "JSONParserNode",
+      "pos": [
+        -1938.015380859375,
+        2030.1947021484375
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "parsed_data",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            29
+          ]
+        },
+        {
+          "name": "array_size",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONParserNode"
+      },
+      "widgets_values": [
+        "{\n    \"Ali\": {\n      \"name\": \"Alice\",\n      \"scores\": [85, 90, 92]\n    },\n    \"Bob\": {\n      \"name\": \"Bob\",\n      \"scores\": [78, 88, 94]\n    }\n}",
+        ""
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 7,
+      "type": "JSONLengthNode",
+      "pos": [
+        -1730.7044473416086,
+        2290.5429156782834
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "json_input",
+          "type": "STRING",
+          "widget": {
+            "name": "json_input"
+          },
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "length",
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            36
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONLengthNode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 54,
+      "type": "Note",
+      "pos": [
+        -1514.8914794921875,
+        2034.6947021484375
+      ],
+      "size": [
+        333.25,
+        159.203125
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "JSONLengthNode",
+      "properties": {},
+      "widgets_values": [
+        "## Node Description (JSONLengthNode)\nThis Node returns the length of JSON arrays/objects.\nInput:\n- json_input: JSON string\nOutput:\n- length: Number of elements/keys\n## Exception\n- ValueError if invalid JSON input\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 57,
+      "type": "Note",
+      "pos": [
+        -235.63531494140625,
+        1341.2774658203125
+      ],
+      "size": [
+        389.46875,
+        162.234375
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "JSONKeyCheckerNode",
+      "properties": {},
+      "widgets_values": [
+        "## Node Description (JSONKeyCheckerNode)\nThis Node checks for key existence and returns its value.\nInput:\n- json_input: JSON object string\n- key: Key to check (supports dot notation)\nOutput:\n- exists: Boolean for key existence\n- value: Value if key exists\n## Exception\n- ValueError if invalid JSON input\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9,
+      "type": "JSONModifierNode",
+      "pos": [
+        -1086.6519067287556,
+        1958.7891546894307
+      ],
+      "size": [
+        443.265625,
+        412.15625
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "modified_json",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JSONModifierNode"
+      },
+      "widgets_values": [
+        "{\n    \"Ali\": {\n      \"name\": \"Alice\",\n      \"scores\": [85, 90, 92]\n    },\n    \"Bob\": {\n      \"name\": \"Bob\",\n      \"scores\": [78, 88, 94]\n    }\n}",
+        "Ali",
+        "{\n\"name\": 1,\n\"scores\": \"alala\"\n}"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 58,
+      "type": "Note",
+      "pos": [
+        -607.8974816421335,
+        1945.8143926573794
+      ],
+      "size": [
+        409.75,
+        173.234375
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "JSONModifierNode",
+      "properties": {},
+      "widgets_values": [
+        "## Node Description (JSONModifierNode)\nThis Node modifies JSON values at specified paths.\nInput:\n- json_input: JSON to modify\n- path: Path to modification point\n- new_value: New value to insert\nOutput:\n- modified_json: Updated JSON\n## Exception\n- ValueError if invalid JSON or path\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 15,
+      "type": "RandomJSONValueNode",
+      "pos": [
+        -137.2216452603161,
+        1957.0594454402524
+      ],
+      "size": [
+        403.90625,
+        389.28125
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "random_value",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            45
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomJSONValueNode"
+      },
+      "widgets_values": [
+        "{\n    \"Ali\": {\n      \"name\": \"Alice\",\n      \"scores\": [85, 90, 92]\n    },\n    \"Bob\": {\n      \"name\": \"Bob\",\n      \"scores\": [78, 88, 94]\n    }\n}",
+        -1
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 59,
+      "type": "Note",
+      "pos": [
+        277.37908935546875,
+        1953.03076171875
+      ],
+      "size": [
+        349.28125,
+        139.671875
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "RandomJSONValueNode",
+      "properties": {},
+      "widgets_values": [
+        "## Node Description (RandomJSONValueNode)\nThis Node returns random values from JSON structures.\nInput:\n- json_input: JSON to traverse\n- max_depth: Maximum nesting depth (-1 for unlimited)\nOutput:\n- random_value: Randomly selected value\n## Exception\n- ValueError if invalid JSON input"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 60,
+      "type": "Note",
+      "pos": [
+        -3630.80615234375,
+        1094.996826171875
+      ],
+      "size": [
+        788.234375,
+        145.703125
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Hey there! 👋 I've built a set of handy JSON tools to make your life easier when working with JSON data. Whether you need to parse, modify, merge, or transform JSON structures, our nodes will help you get the job done without the hassle!\n\nYou can run this workflow to check the result of each node to figure out how to use. Have fun😸\n\nGithub Repo url: https://github.com/Q-Bug4/Comfyui-Simple-Json-Node\nIssue url: https://github.com/Q-Bug4/Comfyui-Simple-Json-Node/issues"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 61,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        -3171.951307016505,
+        1542.3614902879326
+      ],
+      "size": [
+        259.5625,
+        138.046875
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "{\n  \"name\": \"Bob\",\n  \"ext\": \"nothing here\",\n  \"scores\": [\n    78,\n    88,\n    94\n  ]\n}"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 63,
+      "type": "NCEShowAnything",
+      "pos": [
+        -3167.5400865181496,
+        1721.746516121171
+      ],
+      "size": [
+        248.796875,
+        126
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEShowAnything"
+      },
+      "widgets_values": [
+        "-1"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 64,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        -3187.616329343565,
+        1911.0352230451765
+      ],
+      "size": [
+        262.140625,
+        253.125
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "Bob"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 65,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        -2356.9587784429286,
+        1530.6637601954171
+      ],
+      "size": [
+        317.65625,
+        192.046875
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "{\n  \"name\": \"Alice\",\n  \"scores\": [\n    1,\n    2,\n    3\n  ]\n}"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 66,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        -2331.009952553417,
+        2141.6022610341533
+      ],
+      "size": [
+        289.171875,
+        317.265625
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "{\n  \"name\": \"Alice\",\n  \"scores\": [\n    85,\n    90,\n    92\n  ],\n  \"name2\": \"Bob\",\n  \"scores2\": [\n    78,\n    88,\n    94\n  ]\n}"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 67,
+      "type": "NCEShowAnything",
+      "pos": [
+        -1485.6934892309396,
+        2286.8792210358492
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEShowAnything"
+      },
+      "widgets_values": [
+        "2"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 68,
+      "type": "NCEShowAnything",
+      "pos": [
+        -1474.3141133675222,
+        1803.7538123061402
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEShowAnything"
+      },
+      "widgets_values": [
+        "0"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 69,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        -1474.1339832607634,
+        1527.463013065487
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 38
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "Ali"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 70,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        -1472.4390777232682,
+        1667.3843520282044
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 39
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "{\"name\": \"Alice\", \"scores\": [85, 90, 92]}"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 71,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        -571.3724466824362,
+        1394.6206470872226
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "{\"name\": \"Alice\", \"scores\": [85, 90, 92]}"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 72,
+      "type": "NCEShowAnything",
+      "pos": [
+        -577.4516728312306,
+        1566.3942509673664
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEShowAnything"
+      },
+      "widgets_values": [
+        "0"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 73,
+      "type": "NCEShowAnything",
+      "pos": [
+        -578.9391483236261,
+        1719.9667962579952
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 42
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEShowAnything"
+      },
+      "widgets_values": [
+        "2"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 74,
+      "type": "NCEShowAnything",
+      "pos": [
+        173.0703967144991,
+        1546.5657119146576
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEShowAnything"
+      },
+      "widgets_values": [
+        "True"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 75,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        173.73301817864717,
+        1675.1581538058745
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 44
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "Alice"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 76,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        306.08278934802183,
+        2150.0140648451707
+      ],
+      "size": [
+        225,
+        126
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "90"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    },
+    {
+      "id": 77,
+      "type": "NCEUtilsShowText",
+      "pos": [
+        -594.7817879459503,
+        2179.5730932518463
+      ],
+      "size": [
+        348.671875,
+        164.234375
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 46
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NCEUtilsShowText"
+      },
+      "widgets_values": [
+        "{\n  \"Ali\": {\n    \"name\": 1,\n    \"scores\": \"alala\"\n  },\n  \"Bob\": {\n    \"name\": \"Bob\",\n    \"scores\": [\n      78,\n      88,\n      94\n    ]\n  }\n}"
+      ],
+      "color": "#4a3b5c",
+      "bgcolor": "#6b5b7f"
+    }
+  ],
+  "links": [
+    [
+      29,
+      56,
+      0,
+      7,
+      0,
+      "STRING"
+    ],
+    [
+      30,
+      1,
+      0,
+      61,
+      0,
+      "STRING"
+    ],
+    [
+      32,
+      1,
+      1,
+      63,
+      0,
+      "INT"
+    ],
+    [
+      33,
+      47,
+      0,
+      64,
+      0,
+      "STRING"
+    ],
+    [
+      34,
+      10,
+      0,
+      65,
+      0,
+      "STRING"
+    ],
+    [
+      35,
+      8,
+      0,
+      66,
+      0,
+      "STRING"
+    ],
+    [
+      36,
+      7,
+      0,
+      67,
+      0,
+      "INT"
+    ],
+    [
+      37,
+      14,
+      2,
+      68,
+      0,
+      "INT"
+    ],
+    [
+      38,
+      14,
+      0,
+      69,
+      0,
+      "STRING"
+    ],
+    [
+      39,
+      14,
+      1,
+      70,
+      0,
+      "STRING"
+    ],
+    [
+      40,
+      13,
+      0,
+      71,
+      0,
+      "STRING"
+    ],
+    [
+      41,
+      13,
+      1,
+      72,
+      0,
+      "INT"
+    ],
+    [
+      42,
+      13,
+      2,
+      73,
+      0,
+      "INT"
+    ],
+    [
+      43,
+      12,
+      0,
+      74,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      44,
+      12,
+      1,
+      75,
+      0,
+      "STRING"
+    ],
+    [
+      45,
+      15,
+      0,
+      76,
+      0,
+      "STRING"
+    ],
+    [
+      46,
+      9,
+      0,
+      77,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "JSONGeneratorNode",
+      "bounding": [
+        -2812.4306640625,
+        1260.0762939453125,
+        798.3035888671875,
+        488.9696350097656
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "JSONObjectIteratorNode",
+      "bounding": [
+        -1980.235107421875,
+        1260.174072265625,
+        840.7557983398438,
+        657.0262451171875
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "JSONArrayIteratorNode",
+      "bounding": [
+        -1106.0665283203125,
+        1263.8094482421875,
+        828.933837890625,
+        583.1295166015625
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "SimpleJSONParserNode",
+      "bounding": [
+        -3632.0205078125,
+        1262.8004150390625,
+        778.401123046875,
+        928.8150024414062
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "JSONMergeNode",
+      "bounding": [
+        -2818.18701171875,
+        1823.8824462890625,
+        805.4154052734375,
+        681.9451293945312
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "JSONLengthNode",
+      "bounding": [
+        -1948.015380859375,
+        1956.594482421875,
+        800.5031807193068,
+        541.0756990729324
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "JSONKeyCheckerNode",
+      "bounding": [
+        -254.62130737304688,
+        1267.677490234375,
+        695.7777111357016,
+        567.0295791130511
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "JSONModifierNode",
+      "bounding": [
+        -1102.6138916015625,
+        1889.66796875,
+        924.475830078125,
+        496.8734436035156
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 9,
+      "title": "RandomJSONValueNode",
+      "bounding": [
+        -148.20474243164062,
+        1879.4306640625,
+        883.0707073773622,
+        496.16236321120823
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.4665073802097333,
+      "offset": [
+        3225.3832812080636,
+        -1354.2607262471547
+      ]
+    },
+    "node_versions": {
+      "ComfyUI-Chibi-Nodes": "290ccef2a8c1bc3917e1c00dbe5c206b66fb8ded",
+      "was-node-suite-comfyui": "056badacda52e88d29d6a65f9509cd3115ace0f2"
+    },
+    "ue_links": [],
+    "frontendVersion": "1.47.11",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

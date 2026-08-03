@@ -8,7 +8,6 @@ function NCEShowAnythingNodeCreated(nodeType, nodeData) {
     function populate(text, source) {
         console.log(`NCEShowAnything - populate called from: ${source}`);
         console.log("NCEShowAnything - text:", text);
-        console.log("NCEShowAnything - current widgets count:", this.widgets?.length || 0);
 
         // 防止重复调用
         if (this._isPopulating) {
@@ -33,22 +32,33 @@ function NCEShowAnythingNodeCreated(nodeType, nodeData) {
             v = [text];
         }
 
-        // 移除空元素
-        if (!v[0]) {
+        // 移除开头的空项
+        if (v.length > 0 && !v[0] && v[0] !== 0) {
             v.shift();
         }
 
-        console.log("NCEShowAnything - will create", v.length, "widgets");
-
-        for (const list of v) {
-            const w = ComfyWidgets["STRING"](this, "text", ["STRING", { multiline: true }], app).widget;
-            w.inputEl.readOnly = true;
-            w.inputEl.style.opacity = 0.6;
-            w.value = list;
+        for (let list of v) {
+            if (!Array.isArray(list)) list = [list];
+            for (const l of list) {
+                const valStr = typeof l === "object" ? JSON.stringify(l, null, 2) : String(l ?? "");
+                const w = ComfyWidgets["STRING"](this, "text_" + (this.widgets?.length || 0), ["STRING", { multiline: true }], app).widget;
+                if (w && w.inputEl) {
+                    w.inputEl.readOnly = true;
+                    w.inputEl.style.opacity = "0.85";
+                    w.inputEl.style.overflowY = "auto";
+                    w.inputEl.style.overflowX = "auto";
+                    w.inputEl.style.boxSizing = "border-box";
+                }
+                w.value = valStr;
+            }
         }
 
         requestAnimationFrame(() => {
             const sz = this.computeSize();
+            // 限制节点自动扩充的最大高度，长文本通过 textarea 内部滚动条(overflowY: auto)滚动查看
+            if (sz[1] > 350) {
+                sz[1] = 350;
+            }
             if (sz[0] < this.size[0]) {
                 sz[0] = this.size[0];
             }
@@ -65,7 +75,7 @@ function NCEShowAnythingNodeCreated(nodeType, nodeData) {
 
     nodeType.prototype.onNodeCreated = function () {
         onNodeCreated?.apply(this, arguments);
-    }
+    };
 
     // 事件处理器
     const onExecuted = nodeType.prototype.onExecuted;
@@ -75,12 +85,21 @@ function NCEShowAnythingNodeCreated(nodeType, nodeData) {
         populate.call(this, message.text, "onExecuted");
     };
 
+    const VALUES = Symbol();
+    const configure = nodeType.prototype.configure;
+    nodeType.prototype.configure = function () {
+        this[VALUES] = arguments[0]?.widgets_values;
+        return configure?.apply(this, arguments);
+    };
+
     const onConfigure = nodeType.prototype.onConfigure;
     nodeType.prototype.onConfigure = function () {
-        console.log("NCEShowAnything - onConfigure called, widgets_values:", this.widgets_values);
         onConfigure?.apply(this, arguments);
-        if (this.widgets_values?.length) {
-            populate.call(this, this.widgets_values.slice(+this.widgets_values.length > 1), "onConfigure");
+        const widgets_values = this[VALUES] || this.widgets_values;
+        if (widgets_values?.length) {
+            requestAnimationFrame(() => {
+                populate.call(this, widgets_values, "onConfigure");
+            });
         }
     };
 }

@@ -6,6 +6,7 @@ from .nodes.logic import *
 from .nodes.primitive_node import *
 from .nodes.image_info import *
 from .nodes.latent_node import *
+from .nodes.tools.json import *
 
 NODE_CONFIG = {
 
@@ -108,6 +109,57 @@ NODE_CONFIG = {
         "class": NCEFloatConstant,
         "name": "浮点数常量",
         "category": "🐍 NCE/基础"
+    },
+    ###########################JSON节点#######################
+    "JSONParserNode": {
+        "class": SimpleJSONParserNode,
+        "name": "JSON 解析器",
+        "category": "🐍 NCE/JSON"
+    },
+    "RandomJSONValueNode": {
+        "class": RandomJSONValueNode,
+        "name": "随机 JSON 值",
+        "category": "🐍 NCE/JSON"
+    },
+    "JSONObjectIteratorNode": {
+        "class": JSONObjectIteratorNode,
+        "name": "JSON 对象迭代器",
+        "category": "🐍 NCE/JSON"
+    },
+    "JSONArrayIteratorNode": {
+        "class": JSONArrayIteratorNode,
+        "name": "JSON 数组迭代器",
+        "category": "🐍 NCE/JSON"
+    },
+    "JSONMergeNode": {
+        "class": JSONMergeNode,
+        "name": "JSON 合并",
+        "category": "🐍 NCE/JSON"
+    },
+    "JSONModifierNode": {
+        "class": JSONModifierNode,
+        "name": "JSON 修改器",
+        "category": "🐍 NCE/JSON"
+    },
+    "JSONGeneratorNode": {
+        "class": JSONGeneratorNode,
+        "name": "JSON 生成器",
+        "category": "🐍 NCE/JSON"
+    },
+    "JSONLengthNode": {
+        "class": JSONLengthNode,
+        "name": "JSON 长度计算",
+        "category": "🐍 NCE/JSON"
+    },
+    "JSONKeyCheckerNode": {
+        "class": JSONKeyCheckerNode,
+        "name": "JSON 键检查器",
+        "category": "🐍 NCE/JSON"
+    },
+    "JSONStringifierNode": {
+        "class": JSONStringifierNode,
+        "name": "JSON 字符串化工具",
+        "category": "🐍 NCE/JSON"
     }
 }
 
